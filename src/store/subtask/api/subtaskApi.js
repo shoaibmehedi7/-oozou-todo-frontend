@@ -28,7 +28,7 @@ export function getAllSubtask(id) {
   };
 }
 
-export function createSubtask(data, setOpenNew) {
+export function createSubtask(data) {
   return (dispatch) => {
     dispatch(addSubtaskRequest());
     authAxios
@@ -36,7 +36,6 @@ export function createSubtask(data, setOpenNew) {
       .then((response) => {
         dispatch(addSubtaskSuccess(response.data.data));
         toast.success("Successfully added");
-        setOpenNew(false);
       })
       .catch((error) => {
         dispatch(addSubtaskError(error.message));
@@ -45,7 +44,7 @@ export function createSubtask(data, setOpenNew) {
   };
 }
 
-export function updateSubtask(data, setOpen) {
+export function updateSubtask(data) {
   return (dispatch) => {
     dispatch(updateSubtaskRequest());
     authAxios
@@ -53,7 +52,6 @@ export function updateSubtask(data, setOpen) {
       .then((response) => {
         toast.success("Updated successfully");
         dispatch(updateSubtaskSuccess(response.data.data));
-        setOpen(false);
       })
       .catch((error) => {
         dispatch(updateSubtaskError(error.message));

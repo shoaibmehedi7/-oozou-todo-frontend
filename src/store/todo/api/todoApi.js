@@ -28,7 +28,7 @@ export function getAllTodo() {
   };
 }
 
-export function createTodo(data, setOpenNew) {
+export function createTodo(data) {
   return (dispatch) => {
     dispatch(addTodoRequest());
     authAxios
@@ -36,7 +36,6 @@ export function createTodo(data, setOpenNew) {
       .then((response) => {
         dispatch(addTodoSuccess(response.data.data));
         toast.success("Successfully added");
-        setOpenNew(false);
       })
       .catch((error) => {
         dispatch(addTodoError(error.message));
@@ -45,7 +44,7 @@ export function createTodo(data, setOpenNew) {
   };
 }
 
-export function updateTodo(data, setOpen) {
+export function updateTodo(data) {
   return (dispatch) => {
     dispatch(updateTodoRequest());
     authAxios
@@ -53,7 +52,6 @@ export function updateTodo(data, setOpen) {
       .then((response) => {
         toast.success("Updated successfully");
         dispatch(updateTodoSuccess(response.data.data));
-        setOpen(false);
       })
       .catch((error) => {
         dispatch(updateTodoError(error.message));

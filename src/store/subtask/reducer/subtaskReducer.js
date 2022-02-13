@@ -21,6 +21,8 @@ export function subtaskReducer(state = initState, action) {
     case GET_ALL_SUBTASK_REQUEST:
       return {
         ...state,
+        data: [],
+        error: "",
         loading: true,
       };
     case GET_ALL_SUBTASK_SUCCESS:
