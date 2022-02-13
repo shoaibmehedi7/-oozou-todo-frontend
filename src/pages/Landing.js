@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllTodo } from "../store/todo/api/todoApi";
 
 function Landing() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllTodo());
+  }, []);
+
   return (
-    <div>Landing</div>
-  )
+    <div>
+      <div>application loaded successfully</div>
+    </div>
+  );
 }
 
-export default Landing
+export default Landing;
