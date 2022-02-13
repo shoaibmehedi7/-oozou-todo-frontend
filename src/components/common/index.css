@@ -1,0 +1,26 @@
+.accordion {
+    width: 50%;
+    margin: auto;
+    background: grey;
+    padding: 5px;
+  }
+  
+  .accordion__item {
+    background: white;
+    margin-bottom: 5px;
+  }
+  
+  .accordion__item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .accordion__header {
+    padding: 10px;
+    background: rgb(169, 169, 169);
+    line-height: 20px;
+  }
+  
+  .accordion__panel {
+    padding: 10px;
+    background: white;
+  }
