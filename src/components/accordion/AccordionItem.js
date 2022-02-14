@@ -30,7 +30,7 @@ const AccordionItem = ({ todo }) => {
       return;
     }
     dispatch(createSubtask(inputValue));
-    setInputValue({ title: ""});
+    setInputValue({ title: "",todo_id: todo.id});
   };
 
   const handleChange = (e) => {
@@ -53,9 +53,9 @@ const AccordionItem = ({ todo }) => {
         <div className="min-w-full flex flex-col-2 bg-[#14B8A6] rounded-xl my-1">
           <div className="w-full mt-2 p-2 rounded-lg ">
             <Checkbox
-              disable={todo.status === taskStatus.COMPLETED}
+              disable={todo.status}
               label={todo.title}
-              value={todo.status === taskStatus.COMPLETED}
+              value={todo.status}
               api={() => {
                 dispatch(
                   updateTodo({
@@ -88,7 +88,7 @@ const AccordionItem = ({ todo }) => {
               <div className="subTask subTask_title">
                 <Checkbox
                   label={subTask.title}
-                  value={subTask.status === taskStatus.COMPLETED}
+                  value={subTask.status}
                   api={() => {
                     dispatch(
                       updateSubtask({

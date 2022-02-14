@@ -19,6 +19,7 @@ function Landing() {
   const updateSubtaskState = useSelector((state) => state.updateSubtask.data);
   const updateToDoState = useSelector((state) => state.updateTodo.data);
   const [checked, setChecked] = React.useState(false);
+  console.log(todos);
 
   const onSubmit = (e) => {
     e.preventDefault();

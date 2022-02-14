@@ -22,7 +22,7 @@ export function todoReducer(state = initState, action) {
       return {
         ...state,
         loading: true,
-        data:[],
+        // data:[],
         error: "",
       };
     case GET_ALL_TODO_SUCCESS:
@@ -51,6 +51,8 @@ export function createTodoReducer(state = initState, action) {
       return {
         ...state,
         loading: true,
+        data:[],
+        error: "",
       };
     case ADD_TODO_SUCCESS:
       return {
@@ -71,7 +73,7 @@ export function createTodoReducer(state = initState, action) {
   }
 }
 
-export function updateTodoReducer(state =initState, action) {
+export function updateTodoReducer(state = initState, action) {
   switch (action.type) {
     case UPDATE_TODO_REQUEST:
       return {
@@ -85,7 +87,7 @@ export function updateTodoReducer(state =initState, action) {
         error: "",
         data: action.payload,
       };
-      case UPDATE_TODO_ERROR:
+    case UPDATE_TODO_ERROR:
       return {
         ...state,
         loading: false,
