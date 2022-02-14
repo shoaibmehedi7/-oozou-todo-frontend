@@ -27,7 +27,7 @@ const AccordionItem = ({ todo,modalControl }) => {
     e.preventDefault();
     modalControl(true);
     if (title.trim() === "") {
-      toast.warning("Please enter a valid todo");
+      toast.warning("Please enter a valid task");
       modalControl(false);
       return;
     }
