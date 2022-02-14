@@ -47,6 +47,7 @@ function Landing() {
     e.preventDefault();
     openModal();
     if (title.trim() === "") {
+      closeModal();
       toast.warning("Please enter a valid todo");
       return;
     }

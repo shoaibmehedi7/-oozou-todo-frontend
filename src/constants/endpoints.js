@@ -1,5 +1,5 @@
-export const baseUrl = "http://localhost:8000/api/v1/";
-// export const baseUrl = "http://3.23.96.38:8000/api/v1/";
+// export const baseUrl = "http://localhost:8000/api/v1/";
+export const baseUrl = "http://3.23.96.38:8000/api/v1/";
 
 export const apiEndPoint = {
   GET_TODOS: "todo/getAll",

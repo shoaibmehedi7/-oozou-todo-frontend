@@ -22,8 +22,8 @@ export function getAllTodo() {
         dispatch(getAllTodoSuccess(response.data.data));
       })
       .catch((error) => {
-        dispatch(getAllTodoError(error.message));
-        toast.error(error.message);
+        dispatch(getAllTodoError(error.response.data.message));
+        toast.error(error.response.data.message);
       });
   };
 }
@@ -35,11 +35,10 @@ export function createTodo(data) {
       .post(apiEndPoint.CREATE_TODO, data)
       .then((response) => {
         dispatch(addTodoSuccess(response.data.data));
-        // toast.success("Successfully added");
       })
       .catch((error) => {
-        dispatch(addTodoError(error.message));
-        toast.error(error.message);
+        dispatch(addTodoError(error.response.data.message));
+        toast.error(error.response.data.message);
       });
   };
 }
@@ -50,12 +49,11 @@ export function updateTodo(data) {
     authAxios
       .post(apiEndPoint.UPDATE_TODO, data)
       .then((response) => {
-        // toast.success("Updated successfully");
         dispatch(updateTodoSuccess(response.data.data));
       })
       .catch((error) => {
-        dispatch(updateTodoError(error.message));
-        toast.error(error.message);
+        dispatch(updateTodoError(error.response.data.message));
+        toast.error(error.response.data.message);
       });
   };
 }
