@@ -14,7 +14,7 @@ import ButtonCustom from "../common/ButtonCustom";
 const AccordionItem = ({ todo,modalControl }) => {
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState({ title: "", todo_id: todo.id });
+  const [inputValue, setInputValue] = useState({ title: ""});
   const { title, todo_id } = inputValue;
 
   const contentEl = useRef();
@@ -28,20 +28,19 @@ const AccordionItem = ({ todo,modalControl }) => {
     modalControl(true);
     if (title.trim() === "") {
       toast.warning("Please enter a valid todo");
+      modalControl(false);
       return;
     }
-    dispatch(createSubtask(inputValue));
-    setInputValue({ title: "",todo_id: todo.id});
+    dispatch(createSubtask({todo_id: todo.id ,title:inputValue.title}));
+    setInputValue({ title: ""});
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(inputValue)
     setInputValue((prev) => ({
       ...prev,
       [name]: value,
     }));
-    console.log(inputValue);
   };
 
   return (

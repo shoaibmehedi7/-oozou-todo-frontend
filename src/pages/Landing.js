@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import ButtonCustom from "../components/common/ButtonCustom";
-import Checkbox from "../components/common/Checkbox";
 import InputField from "../components/common/InputField";
 import { createTodo, getAllTodo } from "../store/todo/api/todoApi";
-import { taskStatus } from "../constants/constants";
 import AccordionItem from "../components/accordion/AccordionItem";
 import ClipLoader from "react-spinners/ClipLoader";
 import Modal from "react-modal";
@@ -29,7 +27,6 @@ function Landing() {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = "#f00";
   }
 
@@ -44,10 +41,7 @@ function Landing() {
   const createSubtaskState = useSelector((state) => state.createSubtask.data);
   const updateSubtaskState = useSelector((state) => state.updateSubtask.data);
   const updateToDoState = useSelector((state) => state.updateTodo.data);
-  const [checked, setChecked] = React.useState(false);
   let [loading, setLoading] = useState(true);
-
-  console.log(todos);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -66,7 +60,6 @@ function Landing() {
       ...prev,
       [name]: value,
     }));
-    console.log(inputValue);
   };
 
   useEffect(() => {
@@ -81,23 +74,10 @@ function Landing() {
   useEffect(() => {
     if(!todos.loading){
     setIsOpen(false);
-
-      // openModal(false);
     }
-    // else{
-    //   openModal(false);
-    // }
   }, [
     todos.loading
   ]);
-
-  // if (todos.loading) {
-  //   return (
-  //     <div className="flex min-h-screen min-w-full bg-slate-600 justify-center">
-  //       <ClipLoader loading={loading} size={150} />
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="w-full bg-blue-200 min-h-screen flex justify-center">
@@ -129,11 +109,6 @@ function Landing() {
               >
                 <ClipLoader loading={loading} size={100} />
               </Modal>
-          {/* {todos.loading && (
-            <div className="flex min-h-screen min-w-full justify-center">
-                <ClipLoader loading={loading} size={150} />
-            </div>
-          )} */}
           {todos.data.map((todo) => {
             return <AccordionItem id={todo.id} modalControl={setIsOpen} todo={todo} />;
           })}

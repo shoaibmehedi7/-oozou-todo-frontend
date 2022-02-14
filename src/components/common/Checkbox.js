@@ -1,10 +1,9 @@
 import React from "react";
 import { taskStatus } from "../../constants/constants";
 
-const Checkbox = ({ label, value, onChange,disable,api,modalControl }) => {
+const Checkbox = ({ label, value, disable,api,modalControl }) => {
   const handleChangee = (e) => {
     modalControl(true);
-    console.log(api);
     api();
   };
     return (
