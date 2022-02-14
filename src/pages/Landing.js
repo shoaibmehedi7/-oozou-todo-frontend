@@ -44,7 +44,7 @@ function Landing() {
       <div className="bg-white w-10/12 my-4 rounded-2xl p-12">
         <div className="inline-block w-1/2 pb-12">
           <InputField
-            className="w-2/3"
+            className="w-2/3 h-16 text-2xl px-8"
             type="text"
             value={title}
             placeholder="ToDo"
@@ -52,7 +52,7 @@ function Landing() {
             name="title"
             onChange={handleChange}
           />
-          <ButtonCustom className="w-1/3" title="New List" onSubmit={onSubmit} />
+          <ButtonCustom className="w-1/3 h-16 text-2xl px-8" title="New List" onSubmit={onSubmit} />
         </div>
         <div className="">
           <p className="text-3xl">ToDo List</p>

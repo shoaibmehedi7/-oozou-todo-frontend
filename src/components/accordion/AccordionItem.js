@@ -28,7 +28,7 @@ const AccordionItem = ({ todo }) => {
             />
             <p>{`${completedCount} of ${todo.subTasks.length} completed`}</p>
           </div>
-          <div className="h-16 w-16 rounded-full bg-red-400 text-center flex content-center justify-center self-center mr-4">
+          <div className="h-16 w-16 rounded-full bg-[#a2fff9] shadow-2xl text-center flex content-center justify-center self-center mr-4">
             <span className="control self-center ">{active ? "—" : "+"} </span>
           </div>
         </div>
@@ -46,10 +46,7 @@ const AccordionItem = ({ todo }) => {
           {todo.subTasks.map((subTask, index) => {
             return (
               <div className="subTask subTask_title">
-                {/* <div className="subTask_title">{subTask.title}</div>
-                <div className="subTask_description">{subTask.description}</div> */}
                 <Checkbox
-                  disable={subTask.status === taskStatus.COMPLETED}
                   label={subTask.title}
                   value={subTask.status === taskStatus.COMPLETED}
                 />

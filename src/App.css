@@ -27,14 +27,8 @@ body {
   list-style: none;
 }
 
-/* .accordion_item {
-  border-top: 1px solid #9f9f9f;
-} */
-
 .button {
   font-size: 16px;
-  /* background-color: #008593; */
-  /* color: #fff; */
   text-align: left;
   font-weight: 700;
   display: flex;
@@ -42,7 +36,6 @@ body {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  /* padding: 18px 8px; */
   cursor: pointer;
   border: none;
 }
@@ -52,19 +45,13 @@ body {
 }
 
 .answer {
-  /* background-color: #f7f7f7; */
   padding: 20px;
 }
 
-/* activate toggle */
 .accordion_item.active .button {
-  /* background-color: #105057; */
 }
 .answer_wrapper {
   height: 0;
   overflow: hidden;
   transition: height ease 0.2s;
 }
-/* .answer_wrapper.open {
-  height: auto;
-} */

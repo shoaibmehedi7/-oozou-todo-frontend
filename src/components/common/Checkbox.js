@@ -6,9 +6,8 @@ const Checkbox = ({ label, value, onChange,disable }) => {
     setChecked(!checked);
   };
     return (
-      <label className='text-3xl'>
-        {/* <button className="">hello</button> */}
-        <input className='p-4 text-2xl mr-4' size={10} type="checkbox" checked={checked} onChange={handleChangee} disabled={disable}  />
+      <label className={'text-3xl '+(disable?'text-slate-500':'')}>
+        <input className={'p-4 text-2xl mr-4'} size={10} type="checkbox" checked={checked} onChange={handleChangee} disabled={disable}  />
         {label}
       </label>
     );
