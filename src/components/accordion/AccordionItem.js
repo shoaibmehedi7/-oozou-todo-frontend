@@ -7,6 +7,10 @@ const AccordionItem = ({ todo }) => {
 
   const contentEl = useRef();
 
+  const completedCount = todo.subTasks.filter(
+    (task) => task.status === taskStatus.COMPLETED
+  ).length;
+
   return (
     <div className={`accordion_item ${active ? "active" : ""}`}>
       <button
@@ -15,14 +19,14 @@ const AccordionItem = ({ todo }) => {
           setActive(!active);
         }}
       >
-        <div className='min-w-full flex flex-col-2 bg-[#14B8A6] rounded-xl my-1'>
+        <div className="min-w-full flex flex-col-2 bg-[#14B8A6] rounded-xl my-1">
           <div className="w-full mt-2 p-4 rounded-lg ">
             <Checkbox
               disable={todo.status === taskStatus.COMPLETED}
               label={todo.title}
               value={todo.status === taskStatus.COMPLETED}
             />
-            <p>3 of 5 completed</p>
+            <p>{`${completedCount} of ${todo.subTasks.length} completed`}</p>
           </div>
           <div className="h-16 w-16 rounded-full bg-red-400 text-center flex content-center justify-center self-center mr-4">
             <span className="control self-center ">{active ? "—" : "+"} </span>
@@ -41,9 +45,14 @@ const AccordionItem = ({ todo }) => {
         <div className="answer">
           {todo.subTasks.map((subTask, index) => {
             return (
-              <div className="subTask">
-                <div className="subTask_title">{subTask.title}</div>
-                <div className="subTask_description">{subTask.description}</div>
+              <div className="subTask subTask_title">
+                {/* <div className="subTask_title">{subTask.title}</div>
+                <div className="subTask_description">{subTask.description}</div> */}
+                <Checkbox
+                  disable={subTask.status === taskStatus.COMPLETED}
+                  label={subTask.title}
+                  value={subTask.status === taskStatus.COMPLETED}
+                />
               </div>
             );
           })}
