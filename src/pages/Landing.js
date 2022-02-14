@@ -6,6 +6,7 @@ import Checkbox from "../components/common/Checkbox";
 import InputField from "../components/common/InputField";
 import { createTodo, getAllTodo } from "../store/todo/api/todoApi";
 import { taskStatus } from "../constants/constants";
+import AccordionItem from "../components/accordion/AccordionItem";
 
 function Landing() {
   const [inputValue, setInputValue] = useState({ title: "" });
@@ -57,14 +58,8 @@ function Landing() {
           <p className="text-3xl">ToDo List</p>
           {todos.map((todo) => {
             return (
-              <div className="w-full mt-2 bg-slate-200 p-4 rounded-lg">
-                <Checkbox
-                  disable={todo.status === taskStatus.COMPLETED}
-                  label={todo.title}
-                  value={todo.status === taskStatus.COMPLETED}
-                />
-                <p>3 of 5 completed</p>
-              </div>
+
+            <AccordionItem todo={todo}/>
             );
           })}
         </div>

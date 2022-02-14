@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.4;
+  background: #fff;
+  color: #444;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 600px;
+  margin: 6rem auto 4rem;
+  padding: 0 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.heading {
+  font-size: 23px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.accordion {
+  list-style: none;
+}
+
+/* .accordion_item {
+  border-top: 1px solid #9f9f9f;
+} */
+
+.button {
+  font-size: 16px;
+  /* background-color: #008593; */
+  /* color: #fff; */
+  text-align: left;
+  font-weight: 700;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* padding: 18px 8px; */
+  cursor: pointer;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.control {
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.answer {
+  /* background-color: #f7f7f7; */
+  padding: 20px;
 }
+
+/* activate toggle */
+.accordion_item.active .button {
+  /* background-color: #105057; */
+}
+.answer_wrapper {
+  height: 0;
+  overflow: hidden;
+  transition: height ease 0.2s;
+}
+/* .answer_wrapper.open {
+  height: auto;
+} */
