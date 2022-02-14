@@ -9,10 +9,15 @@ import { taskStatus } from "../constants/constants";
 import AccordionItem from "../components/accordion/AccordionItem";
 
 function Landing() {
+  const dispatch = useDispatch();
+
   const [inputValue, setInputValue] = useState({ title: "" });
   const { title } = inputValue;
   const todos = useSelector((state) => state.todo.data);
   const createToDoState = useSelector((state) => state.createTodo.data);
+  const createSubtaskState = useSelector((state) => state.createSubtask.data);
+  const updateSubtaskState = useSelector((state) => state.updateSubtask.data);
+  const updateToDoState = useSelector((state) => state.updateTodo.data);
   const [checked, setChecked] = React.useState(false);
 
   const onSubmit = (e) => {
@@ -34,10 +39,9 @@ function Landing() {
     console.log(inputValue);
   };
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllTodo());
-  }, [createToDoState]);
+  }, [createToDoState,updateToDoState,createSubtaskState,updateSubtaskState]);
 
   return (
     <div className="w-full bg-blue-200 min-h-screen flex justify-center">
@@ -58,7 +62,6 @@ function Landing() {
           <p className="text-3xl">ToDo List</p>
           {todos.map((todo) => {
             return (
-
             <AccordionItem todo={todo}/>
             );
           })}

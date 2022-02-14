@@ -22,6 +22,8 @@ export function todoReducer(state = initState, action) {
       return {
         ...state,
         loading: true,
+        data:[],
+        error: "",
       };
     case GET_ALL_TODO_SUCCESS:
       return {
