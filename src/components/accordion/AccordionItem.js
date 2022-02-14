@@ -11,7 +11,7 @@ import InputField from "../common/InputField";
 import { toast } from "react-toastify";
 import ButtonCustom from "../common/ButtonCustom";
 
-const AccordionItem = ({ todo }) => {
+const AccordionItem = ({ todo,modalControl }) => {
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState({ title: "", todo_id: todo.id });
@@ -25,6 +25,7 @@ const AccordionItem = ({ todo }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    modalControl(true);
     if (title.trim() === "") {
       toast.warning("Please enter a valid todo");
       return;
@@ -35,6 +36,7 @@ const AccordionItem = ({ todo }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(inputValue)
     setInputValue((prev) => ({
       ...prev,
       [name]: value,
@@ -53,6 +55,7 @@ const AccordionItem = ({ todo }) => {
         <div className="min-w-full flex flex-col-2 bg-[#14B8A6] rounded-xl my-1">
           <div className="w-full mt-2 p-2 rounded-lg ">
             <Checkbox
+            modalControl={modalControl}
               disable={todo.status}
               label={todo.title}
               value={todo.status}
@@ -87,6 +90,7 @@ const AccordionItem = ({ todo }) => {
             return (
               <div className="subTask subTask_title">
                 <Checkbox
+                modalControl={modalControl}
                   label={subTask.title}
                   value={subTask.status}
                   api={() => {

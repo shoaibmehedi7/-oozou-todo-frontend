@@ -35,7 +35,7 @@ export function createSubtask(data) {
       .post(apiEndPoint.CREATE_SUBTASK, data)
       .then((response) => {
         dispatch(addSubtaskSuccess(response.data.data));
-        toast.success("Successfully added");
+        // toast.success("Successfully added");
       })
       .catch((error) => {
         dispatch(addSubtaskError(error.message));
@@ -50,7 +50,7 @@ export function updateSubtask(data) {
     authAxios
       .post(apiEndPoint.UPDATE_SUBTASK, data)
       .then((response) => {
-        toast.success("Updated successfully");
+        // toast.success("Updated successfully");
         dispatch(updateSubtaskSuccess(response.data.data));
       })
       .catch((error) => {

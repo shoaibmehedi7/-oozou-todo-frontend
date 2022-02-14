@@ -35,7 +35,7 @@ export function createTodo(data) {
       .post(apiEndPoint.CREATE_TODO, data)
       .then((response) => {
         dispatch(addTodoSuccess(response.data.data));
-        toast.success("Successfully added");
+        // toast.success("Successfully added");
       })
       .catch((error) => {
         dispatch(addTodoError(error.message));
@@ -50,7 +50,7 @@ export function updateTodo(data) {
     authAxios
       .post(apiEndPoint.UPDATE_TODO, data)
       .then((response) => {
-        toast.success("Updated successfully");
+        // toast.success("Updated successfully");
         dispatch(updateTodoSuccess(response.data.data));
       })
       .catch((error) => {
